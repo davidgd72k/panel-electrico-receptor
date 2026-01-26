@@ -27,14 +27,14 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 0, 1)]
+"values": [Color(0.95330817, 0.95486444, 0.99121803, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_ufap1"]
 resource_name = "walk_down"
 length = 0.8
 loop_mode = 1
-step = 0.2
+step = 0.005
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -42,23 +42,65 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [3, 5, 3, 4]
+"values": [3, 5, 3, 4, 3]
 }
 
 [sub_resource type="Animation" id="Animation_sndxy"]
 resource_name = "go_left"
-step = 0.2
+length = 0.8
+loop_mode = 1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 6, 8, 6]
+}
 
 [sub_resource type="Animation" id="Animation_twkme"]
 resource_name = "go_right"
-step = 0.2
+length = 0.8
+loop_mode = 1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0050000027, 0.20500001, 0.405, 0.605),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [9, 11, 9, 10, 9]
+}
 
 [sub_resource type="Animation" id="Animation_tj5fk"]
 resource_name = "go_up"
-step = 0.2
+length = 0.8
+loop_mode = 1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 0, 2, 0]
+}
 
 [sub_resource type="Animation" id="Animation_d3vum"]
 resource_name = "throw_ray"
@@ -99,7 +141,7 @@ libraries/ = SubResource("AnimationLibrary_sndxy")
 autoplay = &"go_down"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156857804]
-modulate = Color(1, 1, 0, 1)
+modulate = Color(0.95330817, 0.95486444, 0.99121803, 1)
 scale = Vector2(2, 2)
 texture = ExtResource("1_lpmyn")
 hframes = 3
@@ -110,3 +152,5 @@ frame = 3
 visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
+
+[connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
