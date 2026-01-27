@@ -104,7 +104,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_d3vum"]
 resource_name = "throw_ray"
-length = 0.6
+length = 1.2082027
 step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -113,7 +113,7 @@ tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.6),
+"times": PackedFloat32Array(0, 0.2, 1.1983318),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
@@ -135,6 +135,7 @@ height = 44.0
 
 [node name="Psychic" type="CharacterBody2D" unique_id=1120076676]
 script = ExtResource("1_3at2r")
+walk_speed = 200.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918376340]
 libraries/ = SubResource("AnimationLibrary_sndxy")

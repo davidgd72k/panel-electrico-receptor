@@ -13,7 +13,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if Input.is_action_just_pressed("use_power"):
+		print("animacion rayo")
+		$AnimationPlayer.play("throw_ray")
 
 func _physics_process(delta: float) -> void:
 	var direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
@@ -30,9 +32,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
+	#if event is InputEventKey:
+		#if Input.is_action_just_pressed("use_power"):
+			#$AnimationPlayer.play("throw_ray")
 	pass
 	
 func _unhandled_input(event: InputEvent) -> void:
+	#if event is InputEventKey:
+		#if Input.is_action_just_pressed("use_power"):
+			#$AnimationPlayer.play("throw_ray")
 	pass
 
 func decide_animation(input_dir: Vector2) -> String:
