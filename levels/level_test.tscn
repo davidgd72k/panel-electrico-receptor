@@ -2,7 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://cro2au8j8422j" path="res://gameobjects/psychic.tscn" id="1_iho50"]
 
+[sub_resource type="TileSet" id="TileSet_iho50"]
+
 [node name="LevelTest" type="Node" unique_id=317708487]
 
 [node name="Psychic" parent="." unique_id=1120076676 instance=ExtResource("1_iho50")]
 position = Vector2(278, 208)
+
+[node name="TileGround" type="TileMapLayer" parent="." unique_id=2108630617]
+tile_set = SubResource("TileSet_iho50")
