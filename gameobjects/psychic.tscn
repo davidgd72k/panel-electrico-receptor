@@ -31,8 +31,8 @@ tracks/1/keys = {
 "values": [Color(0.95330817, 0.95486444, 0.99121803, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_ufap1"]
-resource_name = "walk_down"
+[sub_resource type="Animation" id="Animation_tj5fk"]
+resource_name = "go_north"
 length = 0.8
 loop_mode = 1
 step = 0.005
@@ -46,25 +46,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [3, 5, 3, 4, 3]
-}
-
-[sub_resource type="Animation" id="Animation_sndxy"]
-resource_name = "go_left"
-length = 0.8
-loop_mode = 1
-step = 0.005
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 6, 8, 6]
+"values": [0, 1, 0, 2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_twkme"]
@@ -85,8 +67,8 @@ tracks/0/keys = {
 "values": [9, 11, 9, 10, 9]
 }
 
-[sub_resource type="Animation" id="Animation_tj5fk"]
-resource_name = "go_up"
+[sub_resource type="Animation" id="Animation_ufap1"]
+resource_name = "go_south"
 length = 0.8
 loop_mode = 1
 step = 0.005
@@ -100,7 +82,25 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 2, 0]
+"values": [3, 5, 3, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_sndxy"]
+resource_name = "go_west"
+length = 0.8
+loop_mode = 1
+step = 0.005
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 6, 8, 6]
 }
 
 [sub_resource type="Animation" id="Animation_d3vum"]
@@ -123,10 +123,10 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sndxy"]
 _data = {
 &"RESET": SubResource("Animation_3at2r"),
-&"go_down": SubResource("Animation_ufap1"),
-&"go_left": SubResource("Animation_sndxy"),
+&"go_north": SubResource("Animation_tj5fk"),
 &"go_right": SubResource("Animation_twkme"),
-&"go_up": SubResource("Animation_tj5fk"),
+&"go_south": SubResource("Animation_ufap1"),
+&"go_west": SubResource("Animation_sndxy"),
 &"throw_ray": SubResource("Animation_d3vum")
 }
 
@@ -140,7 +140,7 @@ walk_speed = 200.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918376340]
 libraries/ = SubResource("AnimationLibrary_sndxy")
-autoplay = &"go_down"
+autoplay = &"go_south"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156857804]
 modulate = Color(0.95330817, 0.95486444, 0.99121803, 1)
@@ -151,7 +151,6 @@ vframes = 4
 frame = 3
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1739388961]
-visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
 
