@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csyrxe5a3ao50" path="res://gameobjects/psychic.gd" id="1_3at2r"]
 [ext_resource type="Texture2D" uid="uid://dhl3npjct4387" path="res://assets/img/sprites/spr_psychic_guy.png" id="1_lpmyn"]
+[ext_resource type="Script" uid="uid://co26qxgo3cssg" path="res://gameobjects/sprite_looker.gd" id="3_ufap1"]
 
 [sub_resource type="Animation" id="Animation_3at2r"]
 length = 0.001
@@ -155,5 +156,6 @@ position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
 
 [node name="SpriteLooker" type="Node" parent="." unique_id=855669148]
+script = ExtResource("3_ufap1")
 
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

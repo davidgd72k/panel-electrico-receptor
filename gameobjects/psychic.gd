@@ -33,7 +33,6 @@ func _ready() -> void:
 	var s = decide_face_animation(enter_direction)
 	animation_player.play(s)
 	animation_player.stop()
-	stopping_moving.connect(_on_player_stop_moving)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,16 +69,10 @@ func _draw():
 
 
 func _input(event: InputEvent) -> void:
-	#if event is InputEventKey:
-		#if Input.is_action_just_pressed("use_power"):
-			#$AnimationPlayer.play("throw_ray")
 	pass
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	#if event is InputEventKey:
-		#if Input.is_action_just_pressed("use_power"):
-			#$AnimationPlayer.play("throw_ray")
 	pass
 
 func decide_face_animation(input_dir: Vector2) -> String:
@@ -91,7 +84,8 @@ func decide_face_animation(input_dir: Vector2) -> String:
 	
 	# Getting angle from player input.
 	angle = input_dir.angle() / (PI/4)
-	face_angle = _float_angle_to_int_angle(angle)
+	#face_angle = _float_angle_to_int_angle(angle)
+	SpriteLooker.convert_to_face_angle(1)
 	print_rich("[color=red]ANGLE:[/color] %s" %  roundi(angle))
 	
 	# Convert 
@@ -126,8 +120,7 @@ func _manage_diagonals_faces(face_angle: int) -> int:
 	return -1
 
 
-static func _float_angle_to_int_angle(angle: float) -> int:
-	return wrapi(int(angle), 0, 8)
+
 
 static func convert_angle_to_anim_name(face_angle: int) -> String:
 	var anim_name := "down"
@@ -143,10 +136,11 @@ static func convert_angle_to_anim_name(face_angle: int) -> String:
 
 	return anim_name
 
-func _on_player_stop_moving() -> void:
-	# TODO: set stopped angle face when player stop moving.
-	pass
-
 
 func _on_animation_player_current_animation_changed(name: StringName) -> void:
 	$AnimationPlayer.play(name)
+
+
+func _on_sprite_looker_changed_looking_direction(direction: String) -> void:
+	print_rich("[color=#a1c7ff]%s[/color]" % direction)
+	pass # Replace with function body.
