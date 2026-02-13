@@ -154,4 +154,6 @@ visible = false
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
 
+[node name="SpriteLooker" type="Node" parent="." unique_id=855669148]
+
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
