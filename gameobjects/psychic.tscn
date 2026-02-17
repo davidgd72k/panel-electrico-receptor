@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://csyrxe5a3ao50" path="res://gameobjects/psychic.gd" id="1_3at2r"]
 [ext_resource type="Texture2D" uid="uid://dhl3npjct4387" path="res://assets/img/sprites/spr_psychic_guy.png" id="1_lpmyn"]
-[ext_resource type="Script" uid="uid://co26qxgo3cssg" path="res://gameobjects/sprite_looker.gd" id="3_ufap1"]
 
 [sub_resource type="Animation" id="Animation_3at2r"]
 length = 0.001
@@ -35,7 +34,7 @@ tracks/1/keys = {
 resource_name = "go_east"
 length = 0.8
 loop_mode = 1
-step = 0.005
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -43,17 +42,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0050000027, 0.20500001, 0.405, 0.605),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [9, 11, 9, 10, 9]
+"values": [11, 9, 10, 9]
 }
 
 [sub_resource type="Animation" id="Animation_tj5fk"]
 resource_name = "go_north"
 length = 0.8
 loop_mode = 1
-step = 0.005
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -61,17 +60,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 0, 2, 0]
+"values": [1, 0, 2, 0]
 }
 
 [sub_resource type="Animation" id="Animation_ufap1"]
 resource_name = "go_south"
 length = 0.8
 loop_mode = 1
-step = 0.005
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -79,17 +78,17 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [3, 5, 3, 4, 3]
+"values": [5, 3, 4, 3]
 }
 
 [sub_resource type="Animation" id="Animation_sndxy"]
 resource_name = "go_west"
 length = 0.8
 loop_mode = 1
-step = 0.005
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,10 +96,74 @@ tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.005, 0.20500001, 0.405, 0.605),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [6, 7, 6, 8, 6]
+"values": [7, 6, 8, 6]
+}
+
+[sub_resource type="Animation" id="Animation_snykx"]
+resource_name = "idle_east"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_5k66f"]
+resource_name = "idle_north"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_7ftk4"]
+resource_name = "idle_south"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_53l8r"]
+resource_name = "idle_west"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
 }
 
 [sub_resource type="Animation" id="Animation_d3vum"]
@@ -114,7 +177,7 @@ tracks/0/path = NodePath("Sprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 1.1983318),
+"times": PackedFloat32Array(0, 0.4, 1.1983318),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 0, 1), Color(1, 1, 1, 1)]
@@ -127,8 +190,70 @@ _data = {
 &"go_north": SubResource("Animation_tj5fk"),
 &"go_south": SubResource("Animation_ufap1"),
 &"go_west": SubResource("Animation_sndxy"),
+&"idle_east": SubResource("Animation_snykx"),
+&"idle_north": SubResource("Animation_5k66f"),
+&"idle_south": SubResource("Animation_7ftk4"),
+&"idle_west": SubResource("Animation_53l8r"),
 &"throw_ray": SubResource("Animation_d3vum")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tj5fk"]
+animation = &"idle_west"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d3vum"]
+animation = &"idle_north"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_snykx"]
+animation = &"idle_east"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5k66f"]
+animation = &"idle_south"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_sc3pc"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_tj5fk")
+blend_point_0/pos = Vector2(-1, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_d3vum")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_snykx")
+blend_point_2/pos = Vector2(1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_5k66f")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3at2r"]
+animation = &"go_west"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ufap1"]
+animation = &"go_east"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sndxy"]
+animation = &"go_north"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_twkme"]
+animation = &"go_south"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_tj5fk"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_3at2r")
+blend_point_0/pos = Vector2(-0.8, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_ufap1")
+blend_point_1/pos = Vector2(0.8, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_sndxy")
+blend_point_2/pos = Vector2(0, 1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_twkme")
+blend_point_3/pos = Vector2(0, -1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d3vum"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5k66f"]
+states/Start/position = Vector2(207, 88)
+states/idle/node = SubResource("AnimationNodeBlendSpace2D_sc3pc")
+states/idle/position = Vector2(689, 114)
+states/walk/node = SubResource("AnimationNodeBlendSpace2D_tj5fk")
+states/walk/position = Vector2(437, 94)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_d3vum")]
+graph_offset = Vector2(2, -16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_twkme"]
 radius = 12.0
@@ -138,10 +263,6 @@ height = 44.0
 script = ExtResource("1_3at2r")
 walk_speed = 200.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918376340]
-libraries/ = SubResource("AnimationLibrary_sndxy")
-autoplay = &"go_south"
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156857804]
 modulate = Color(0.95330817, 0.95486444, 0.99121803, 1)
 scale = Vector2(2, 2)
@@ -150,12 +271,18 @@ hframes = 3
 vframes = 4
 frame = 3
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1918376340]
+libraries/ = SubResource("AnimationLibrary_sndxy")
+autoplay = &"go_south"
+
+[node name="AnimationTree" type="AnimationTree" parent="." unique_id=532827562]
+tree_root = SubResource("AnimationNodeStateMachine_5k66f")
+anim_player = NodePath("../AnimationPlayer")
+parameters/idle/blend_position = Vector2(-0.008849561, -0.0027099848)
+parameters/walk/blend_position = Vector2(0.26548672, -0.3875339)
+
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1739388961]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
 
-[node name="SpriteLooker" type="Node" parent="." unique_id=855669148]
-script = ExtResource("3_ufap1")
-
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
-[connection signal="changed_direction" from="SpriteLooker" to="." method="_on_sprite_looker_changed_direction"]
