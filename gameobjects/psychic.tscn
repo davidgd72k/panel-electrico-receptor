@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csyrxe5a3ao50" path="res://gameobjects/psychic.gd" id="1_3at2r"]
 [ext_resource type="Texture2D" uid="uid://dhl3npjct4387" path="res://assets/img/sprites/spr_psychic_guy.png" id="1_lpmyn"]
+[ext_resource type="Texture2D" uid="uid://di4rl8muti8jv" path="res://icon.svg" id="3_ufap1"]
 
 [sub_resource type="Animation" id="Animation_3at2r"]
 length = 0.001
@@ -278,11 +279,19 @@ autoplay = &"go_south"
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=532827562]
 tree_root = SubResource("AnimationNodeStateMachine_5k66f")
 anim_player = NodePath("../AnimationPlayer")
-parameters/idle/blend_position = Vector2(-0.008849561, -0.0027099848)
-parameters/walk/blend_position = Vector2(0.26548672, -0.3875339)
+parameters/idle/blend_position = Vector2(0, 0)
+parameters/walk/blend_position = Vector2(0, 0)
 
 [node name="CollisionBox" type="CollisionShape2D" parent="." unique_id=1739388961]
 position = Vector2(0, 2)
 shape = SubResource("CapsuleShape2D_twkme")
+
+[node name="RayLauncher" type="Node2D" parent="." unique_id=1005898619]
+
+[node name="Sprite2D" type="Sprite2D" parent="RayLauncher" unique_id=390699959]
+position = Vector2(143, 0)
+rotation = 1.5707964
+scale = Vector2(0.2615367, 0.2615367)
+texture = ExtResource("3_ufap1")
 
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]
