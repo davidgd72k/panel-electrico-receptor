@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cgxw4hlo4qxys"]
+
+[ext_resource type="Texture2D" uid="uid://di4rl8muti8jv" path="res://icon.svg" id="1_8iorf"]
+[ext_resource type="Script" uid="uid://sj58a8x6wsq4" path="res://gameobjects/panel_receptor.gd" id="1_xrslh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrslh"]
+size = Vector2(150, 150)
+
+[node name="PanelReceptor" type="Area2D" unique_id=2035220762]
+script = ExtResource("1_xrslh")
+on_color = Color(0.9712767, 0.5253463, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1081538166]
+texture = ExtResource("1_8iorf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1153368217]
+visible = false
+shape = SubResource("RectangleShape2D_xrslh")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

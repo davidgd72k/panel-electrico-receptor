@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://csyrxe5a3ao50" path="res://gameobjects/psychic.gd" id="1_3at2r"]
 [ext_resource type="Texture2D" uid="uid://dhl3npjct4387" path="res://assets/img/sprites/spr_psychic_guy.png" id="1_lpmyn"]
-[ext_resource type="Texture2D" uid="uid://di4rl8muti8jv" path="res://icon.svg" id="3_ufap1"]
+[ext_resource type="Texture2D" uid="uid://bkvxhlg50f80b" path="res://assets/img/sprites/crosshair098.png" id="3_ufap1"]
 
 [sub_resource type="Animation" id="Animation_3at2r"]
 length = 0.001
@@ -263,6 +263,8 @@ height = 44.0
 [node name="Psychic" type="CharacterBody2D" unique_id=1120076676]
 script = ExtResource("1_3at2r")
 walk_speed = 200.0
+acceleration = 20.0
+friction = 8.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156857804]
 modulate = Color(0.95330817, 0.95486444, 0.99121803, 1)
@@ -289,9 +291,8 @@ shape = SubResource("CapsuleShape2D_twkme")
 [node name="RayLauncher" type="Node2D" parent="." unique_id=1005898619]
 
 [node name="Sprite2D" type="Sprite2D" parent="RayLauncher" unique_id=390699959]
-position = Vector2(143, 0)
+position = Vector2(85, 0)
 rotation = 1.5707964
-scale = Vector2(0.2615367, 0.2615367)
 texture = ExtResource("3_ufap1")
 
 [connection signal="current_animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_current_animation_changed"]

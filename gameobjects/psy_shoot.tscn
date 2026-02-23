@@ -1,20 +1,20 @@
 [gd_scene format=3 uid="uid://deny88jv3l3bb"]
 
 [ext_resource type="Script" uid="uid://dsyrfj1cisy6b" path="res://gameobjects/psy_shoot.gd" id="1_01qdv"]
-[ext_resource type="Texture2D" uid="uid://di4rl8muti8jv" path="res://icon.svg" id="1_u5v2f"]
+[ext_resource type="Texture2D" uid="uid://byxpgpxa3aun7" path="res://assets/img/sprites/spr_spark.png" id="2_ieh8c"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_01qdv"]
-size = Vector2(58, 54)
+[sub_resource type="CircleShape2D" id="CircleShape2D_ieh8c"]
+radius = 25.079872
 
 [node name="PsyShoot" type="Area2D" unique_id=1452819770]
 script = ExtResource("1_01qdv")
 speed = 400.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1338094143]
-modulate = Color(1, 1, 0, 1)
-scale = Vector2(0.265625, 0.265625)
-texture = ExtResource("1_u5v2f")
+texture = ExtResource("2_ieh8c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1055961174]
-visible = false
-shape = SubResource("RectangleShape2D_01qdv")
+shape = SubResource("CircleShape2D_ieh8c")
+
+[node name="PsyCharge" type="Node" parent="." unique_id=1170668266]
+metadata/energy = 10

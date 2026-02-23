@@ -5,6 +5,8 @@ const PSY_SHOOT = preload("uid://deny88jv3l3bb")
 
 @export var walk_speed: float = 100.0
 @export var enter_direction: Vector2 = Vector2.DOWN
+@export var acceleration: float = 10.0
+@export var friction: float = 15.0
 
 ## Font used to display debug text.
 var debug_font = preload("uid://crk02q7wwi7ou")
@@ -27,24 +29,37 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("use_power"):
-		# TODO: lanzar un rayo electrico psíquico.
-		print("animacion rayo")
 		shoot_ray()
 
 func _physics_process(delta: float) -> void:
 	direction = Input.get_vector("go_left", "go_right", "go_up", "go_down")
 	var direction_norm = direction.normalized()
 	
-	if direction.length() > 0:
+	if Input.is_action_pressed("aiming"):
+		if direction.length() != 0.0:
+			current_look_angle = direction.angle()
+		velocity.x = move_toward(velocity.x, 0.0, friction)
+		velocity.y = move_toward(velocity.y, 0.0, friction)
+	# Moving character.
+	elif direction != Vector2.ZERO:
+		# Rotate shoot arrow.
 		current_look_angle = direction.angle()
+		
+		velocity.x = move_toward(velocity.x, direction_norm.x * walk_speed, acceleration)
+		velocity.y = move_toward(velocity.y, direction_norm.y * walk_speed, acceleration)
+		
+	# Braking character.
+	else:
+		velocity.x = move_toward(velocity.x, 0.0, friction)
+		velocity.y = move_toward(velocity.y, 0.0, friction)
+	
+		# Apply update_movement_state to character.
+		#velocity = direction_norm * walk_speed
+	
 	ray_launcher.rotation = current_look_angle
-	
-	# Apply movement to character.
-	velocity = direction_norm * walk_speed
-	
 	# Update AnimationTree state for animating player sprite.
 	update_blend(direction_norm)
-	movement()
+	update_movement_state()
 	move_and_slide()
 
 
@@ -70,7 +85,7 @@ func update_blend(value) -> void:
 	animation_tree.set("parameters/idle/blend_position", value)
 
 
-func movement() -> void:
+func update_movement_state() -> void:
 	if is_zero_approx(velocity.length()):
 		state_machine.travel("idle")
 	else:
@@ -79,8 +94,13 @@ func movement() -> void:
 func shoot_ray() -> void:
 	var shoot = PSY_SHOOT.instantiate()
 	shoot.shoot_angle = current_look_angle
-	shoot.global_position = self.global_position
+	var aim_distance = $RayLauncher/Sprite2D.position + Vector2(20,0)
+	shoot.global_position = self.global_position + aim_distance.rotated(current_look_angle)
 	get_tree().current_scene.add_child(shoot)
+
+
+func timeShoot(time: float):
+	print("Tiempo parado en %d segundos" % time)
 
 
 func _on_animation_player_current_animation_changed(name: StringName) -> void:

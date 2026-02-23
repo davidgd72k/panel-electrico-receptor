@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://oc42cajxt4c3"]
 
 [ext_resource type="PackedScene" uid="uid://cro2au8j8422j" path="res://gameobjects/psychic.tscn" id="1_iho50"]
+[ext_resource type="PackedScene" uid="uid://cgxw4hlo4qxys" path="res://gameobjects/panel_receptor.tscn" id="2_3wh16"]
 
 [sub_resource type="TileSet" id="TileSet_iho50"]
 
@@ -11,3 +12,6 @@ position = Vector2(278, 208)
 
 [node name="TileGround" type="TileMapLayer" parent="." unique_id=2108630617]
 tile_set = SubResource("TileSet_iho50")
+
+[node name="PanelReceptor" parent="." unique_id=2035220762 instance=ExtResource("2_3wh16")]
+position = Vector2(542, 83)
