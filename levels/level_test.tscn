@@ -2,6 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cro2au8j8422j" path="res://gameobjects/psychic.tscn" id="1_iho50"]
 [ext_resource type="PackedScene" uid="uid://cgxw4hlo4qxys" path="res://gameobjects/panel_receptor.tscn" id="2_3wh16"]
+[ext_resource type="PackedScene" uid="uid://b313of1fwg7uv" path="res://gameobjects/lightbulb.tscn" id="3_4w0vo"]
+[ext_resource type="Script" uid="uid://dyf71i1ltr1u2" path="res://levels/cable.gd" id="4_eu8vo"]
 
 [sub_resource type="TileSet" id="TileSet_iho50"]
 
@@ -13,5 +15,18 @@ position = Vector2(278, 208)
 [node name="TileGround" type="TileMapLayer" parent="." unique_id=2108630617]
 tile_set = SubResource("TileSet_iho50")
 
+[node name="Line2D" type="Line2D" parent="." unique_id=286867921]
+points = PackedVector2Array(585, 121, 627, 135, 623, 382, 593, 410, 558, 411)
+script = ExtResource("4_eu8vo")
+on_color = Color(0.9351224, 0.8128748, 0, 1)
+off_color = Color(0.27202758, 0.23492447, 0, 1)
+cooldown_time = 0.1
+
 [node name="PanelReceptor" parent="." unique_id=2035220762 instance=ExtResource("2_3wh16")]
 position = Vector2(542, 83)
+
+[node name="Lightbulb" parent="." unique_id=1103276977 instance=ExtResource("3_4w0vo")]
+position = Vector2(547, 388)
+
+[connection signal="send_energy" from="PanelReceptor" to="Line2D" method="_on_panel_receptor_send_energy"]
+[connection signal="send_energy" from="PanelReceptor" to="Lightbulb" method="_on_panel_receptor_send_energy"]

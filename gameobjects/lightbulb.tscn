@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b313of1fwg7uv"]
+
+[ext_resource type="Texture2D" uid="uid://c3gp43engmgna" path="res://assets/img/sprites/spr_bombilla.png" id="1_eytmd"]
+[ext_resource type="Script" uid="uid://crfnsp6kmoilg" path="res://gameobjects/lightbulb.gd" id="1_ksqmt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ksqmt"]
+size = Vector2(60, 60)
+
+[node name="Lightbulb" type="StaticBody2D" unique_id=1103276977]
+script = ExtResource("1_ksqmt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=723670532]
+shape = SubResource("RectangleShape2D_ksqmt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185725240]
+texture = ExtResource("1_eytmd")
+hframes = 2
+
+[node name="ConsumeTimer" type="Timer" parent="." unique_id=271138729]
+autostart = true
+
+[node name="BatteryLabel" type="Label" parent="." unique_id=182129588]
+offset_left = -36.0
+offset_top = -57.0
+offset_right = 40.0
+offset_bottom = 35.0
+text = "100"
+horizontal_alignment = 1
+
+[connection signal="timeout" from="ConsumeTimer" to="." method="_on_consume_timer_timeout"]

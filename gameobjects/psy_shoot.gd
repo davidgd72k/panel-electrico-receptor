@@ -14,3 +14,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# TODO: ir hacia adelante.
 	position += shoot_direction * speed * delta
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	await get_tree().create_timer(3.0).timeout
+	if not is_queued_for_deletion():
+		queue_free()
